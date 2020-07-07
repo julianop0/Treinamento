@@ -1,0 +1,20 @@
+php:
+    build: .
+    ports:
+        - "5050:80"
+        - "5051:443"
+    volumes:
+        - ./www:/var/www/html
+    links:
+        - db
+
+db:
+    image: mysql:5.7
+    ports:
+        - "5052:3306"
+    volumes:
+        - /var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=db123
+        - MYSQL_USER=root
+        - MYSQL_DATABASE=concessionaria

@@ -1,0 +1,9 @@
+RewriteEngine On
+Options All -Indexes
+
+# ROUTER URL Rewrite
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

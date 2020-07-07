@@ -1,0 +1,22 @@
+{
+    "name": "juliano/composer",
+    "description": "Autoload",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [{
+        "name": "Juliano",
+        "email": "julianop.possamai@gmail.com",
+        "role": "Developer"
+    }],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        },
+        "files": [
+            "config.php"
+        ]
+    }
+}
