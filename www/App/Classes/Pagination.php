@@ -13,7 +13,7 @@ class Pagination
     private $connection;
 
     protected $offset;
-    protected $limit =  4;
+    protected $limit =  6;
 
     #--Magic Get--
     public function __get($property)

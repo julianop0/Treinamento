@@ -15,7 +15,6 @@ class ControllerDelete
 
             $this->model = new Veiculo;
 
-            #--Set--
             $this->model->id = $parameter;
 
             #--Call a function to delete data from DataBase--

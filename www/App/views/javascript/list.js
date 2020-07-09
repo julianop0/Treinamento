@@ -40,7 +40,7 @@ function listar(pagina = 1) {
                     htmlTabela += `<td>${value.marca}</td>`;
                     htmlTabela += `<td class="justify-content align-middle"><a href=editar/${value.id}>`;
                     htmlTabela += '<i class="fa fa-pencil-square-o "></i></a></td>';
-                    htmlTabela += `<td class="justify-content align-middle"><input class="form-check-input" type="checkbox" name="registros[]" value = "${value.id}"></td>`;
+                    htmlTabela += `<td class="justify-content align-middle"><input class="form-check-input" type="checkbox" name="registros" value = "${value.id}"></td>`;
                     htmlTabela += '</tr>';
                 });
 

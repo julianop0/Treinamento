@@ -95,20 +95,22 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="App/views/javascript/list.js"></script>
 <script>
-  function deleteConfirmation(id) {
+  function deleteFunction() {
     swal.fire({
       title: "Deseja prosseguir?",
-      type: "warning",
+      icon: "warning",
       toast: true,
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       confirmButtonText: "Sim! Excluir",
       cancelButtonColor: '#FF6347',
       cancelButtonText: "Não! Cancelar",
-      closeOnConfirm: false
     }).then((result) => {
       if (result.value) {
-        window.location.href = "deletar/" + id;
+        let registros = $('input:checked').map(function() {
+          return this.value;
+        }).get().join();
+        window.location.href = `deletar/${registros}`;
       }
     })
   }
