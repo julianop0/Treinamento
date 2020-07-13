@@ -1,20 +1,18 @@
 "use strict"
 
-function showError(fieldName, toggle, errorType = null) {
+function showError(fieldName, toggle, errorType = null, length = null) {
     if (toggle == "add") {
         $(`[for=${fieldName}]`).css("color", "red");
         $(`#${fieldName}`).css("border", "1px solid red");
         $(`#${fieldName}`).next("label[class=error]").remove();
         if (errorType == "empty") {
-            console.log("empty");
             $(`#${fieldName}`).after("<label class='error'>Preencha este campo!</label>");
         } else {
-            console.log("incomplete");
-            $(`#${fieldName}`).after("<label class='error'>Campo incompleto</label>");
+            $(`#${fieldName}`).after(`<label class='error'>Esse campo deve ter ${length} caracteres</label>`);
         }
     } else {
         $(`[for=${fieldName}]`).css("color", "black");
-        $(`#${fieldName}`).css("border", "1px solid black");
+        $(`#${fieldName}`).css("border", "1px solid gray");
         $(`#${fieldName}`).next("label[class=error]").remove();
     }
 
@@ -56,8 +54,8 @@ $(document).ready(function () {
         if (placa == "") {
             showError("placa", "add", "empty");
             error = true;
-        } else if (placa.length < 7) {
-            showError("placa", "add", "incomplete");
+        } else if (placa.length != 7) {
+            showError("placa", "add", "incomplete", 7);
             error = true;
         } else {
             showError("placa", "remove");
@@ -66,6 +64,9 @@ $(document).ready(function () {
         if (codigoRenavam == "") {
             showError("codigoRenavam", "add", "empty");
             error = true;
+        } else if (codigoRenavam.length != 11) {
+            showError("codigoRenavam", "add", "incomplete", 4);
+            error = true;
         } else {
             showError("codigoRenavam", "remove");
         }
@@ -73,8 +74,8 @@ $(document).ready(function () {
         if (anoModelo == "") {
             showError("anoModelo", "add", "empty");
             error = true;
-        } else if (anoModelo < 4) {
-            showError("anoModelo", "add", "incomplete");
+        } else if (anoModelo.length != 4) {
+            showError("anoModelo", "add", "incomplete", 4);
             error = true;
         } else {
             showError("anoModelo", "remove");
@@ -83,8 +84,8 @@ $(document).ready(function () {
         if (anoFabricacao == "") {
             showError("anoFabricacao", "add", "empty");
             error = true;
-        } else if (anoFabricacao < 4) {
-            showError("anoFabricacao", "add", "incomplete");
+        } else if (anoFabricacao.length != 4) {
+            showError("anoFabricacao", "add", "incomplete", 4);
             error = true;
         } else {
             showError("anoFabricacao", "remove");
@@ -122,7 +123,7 @@ $(document).ready(function () {
             showError("precoFipe", "add", "empty");
             error = true;
         } else {
-            showError("prefoFipe", "remove");
+            showError("precoFipe", "remove");
         }
 
         if (error) {

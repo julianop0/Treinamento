@@ -15,6 +15,11 @@
       opacity: 0.5;
     }
 
+    .form-check-input {
+      width: 18px;
+      height: 18px;
+    }
+
     .button-link {
       background: none;
       border: none;
@@ -74,11 +79,11 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col"></th>
           <th scope="col">Descrição</th>
           <th scope="col">Placa</th>
           <th scope="col">Marca</th>
           <th class="justify-content" scope="col">Editar</th>
-          <th class="justify-content" scope="col">Excluir</th>
         </tr>
       </thead>
       <tbody id="tableList">

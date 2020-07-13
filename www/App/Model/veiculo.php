@@ -54,7 +54,7 @@ class Veiculo
     public function selectAll()
     {
         if (isset($this->id)) {
-            $query = "'SELECT * FROM veiculos WHERE id = :id";
+            $query = "SELECT * FROM veiculos WHERE id = :id";
 
             $stmt = $this->connection->prepare($query);
             $stmt->bindValue(':id', $this->id);

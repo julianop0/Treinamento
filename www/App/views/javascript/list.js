@@ -35,12 +35,12 @@ function listar(pagina = 1) {
                 $.each(veiculos, function (key, value) {
                     htmlTabela += '<tr>';
                     htmlTabela += `<th scope="row">${value.id}</th>`;
+                    htmlTabela += `<td><input type="checkbox" class="form-check-input"  name="registros" value = "${value.id}"></td>`;
                     htmlTabela += `<td>${value.descricao}</td>`;
                     htmlTabela += `<td>${value.placa}</td>`;
                     htmlTabela += `<td>${value.marca}</td>`;
                     htmlTabela += `<td class="justify-content align-middle"><a href=editar/${value.id}>`;
                     htmlTabela += '<i class="fa fa-pencil-square-o "></i></a></td>';
-                    htmlTabela += `<td class="justify-content align-middle"><input class="form-check-input" type="checkbox" name="registros" value = "${value.id}"></td>`;
                     htmlTabela += '</tr>';
                 });
 

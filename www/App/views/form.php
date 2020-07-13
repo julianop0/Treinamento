@@ -42,7 +42,7 @@
 				<div class="col">
 					<div class="form-group">
 						<label for="codigoRenavam">Código RENAVAM </label><b class="red"> *</b>
-						<input type="text" name="codigoRenavam" id="codigoRenavam" class="form-control" placeholder="00000000000" value="<?php echo isset($dataUpdate) ? $dataUpdate["codigo_renavam"] : "" ?>"><br>
+						<input type="text" name="codigoRenavam" id="codigoRenavam" class="form-control" maxlength="11" placeholder="00000000000" value="<?php echo isset($dataUpdate) ? $dataUpdate["codigo_renavam"] : "" ?>"><br>
 					</div>
 				</div>
 			</div>
@@ -51,14 +51,14 @@
 				<div class="col">
 					<div class="form-group">
 						<label for="anoModelo">Ano do modelo </label><b class="red"> *</b>
-						<input type="text" name="anoModelo" id="anoModelo" class="form-control" min="0" placeholder="0000" value="<?php echo isset($dataUpdate) ? $dataUpdate["ano_modelo"] : "" ?>"><br>
+						<input type="text" name="anoModelo" id="anoModelo" class="form-control" minlength="4" maxlength="4" placeholder="0000" value="<?php echo isset($dataUpdate) ? $dataUpdate["ano_modelo"] : "" ?>"><br>
 					</div>
 				</div>
 
 				<div class="col">
 					<div class="form-group">
 						<label for="anoFabricacao">Ano de fabricação </label><b class="red"> *</b>
-						<input type="text" name="anoFabricacao" id="anoFabricacao" class="form-control" min="0" placeholder="0000" value="<?php echo isset($dataUpdate) ? $dataUpdate["ano_fabricacao"] : "" ?>"><br>
+						<input type="text" name="anoFabricacao" id="anoFabricacao" class="form-control" minlength="4" maxlength="4" placeholder="0000" value="<?php echo isset($dataUpdate) ? $dataUpdate["ano_fabricacao"] : "" ?>"><br>
 					</div>
 				</div>
 				<div class="col">
