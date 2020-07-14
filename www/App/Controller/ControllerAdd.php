@@ -18,7 +18,7 @@ class ControllerAdd
         $hrefCancel = "listar";
         $hrefJquery = "public/javascript/Jquery.min.js";
         $hrefMask = "public/javascript/jquery.mask.min.js";
-        $hrefValidation = "App/Views/javascript/form.js";
+        $hrefValidation = "App/views/javascript/form.js";
 
         $title = "Adicionar veículos";
         $formAction = "adicionar/save";
@@ -42,7 +42,7 @@ class ControllerAdd
         $this->model->preco = $_POST['preco'];
         $this->model->preco_fipe = $_POST['precoFipe'];
 
-        #--Call a function to insert a value into DataBase--
+        #--Call a function to insert data into DataBase--
         SESSION_START();
         if ($this->model->add()) {
             $_SESSION['success'] = [
