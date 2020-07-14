@@ -25,7 +25,7 @@ class ControllerUpdate
                 $hrefCancel = "../listar";
                 $hrefJquery = "../public/javascript/Jquery.min.js";
                 $hrefMask = "../public/javascript/jquery.mask.min.js";
-                $hrefValidation = "../App/Views/javascript/form.js";
+                $hrefValidation = "../App/views/javascript/form.js";
 
                 $title = "Ediçaõ do veículo";
                 $formAction = "../editar/save/{$parameter}";
