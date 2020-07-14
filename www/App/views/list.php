@@ -95,7 +95,7 @@
     </nav>
   </div>
 </body>
-<script type="text/javascript" src="public/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="public/javascript/Jquery.min.js"></script>
 <script type="text/javascript" src="public/bootstrap4.5.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="App/views/javascript/list.js"></script>

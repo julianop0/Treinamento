@@ -32,7 +32,7 @@ class Router
             "listar" => "ControllerList",
             "relatorio" => "ControllerPrint",
             "adicionar" => "ControllerAdd",
-            "editar" => "ControllerUpdate",
+            "editar" => "controllerUpdate",
             "deletar" => "ControllerDelete"
         ];
     }
@@ -64,7 +64,7 @@ class Router
     public function getDynamicControllers()
     {
         return [
-            "ControllerUpdate" => "numeric",
+            "controllerUpdate" => "numeric",
             "ControllerDelete" => "numeric",
             "ControllerList" => "string"
         ];
