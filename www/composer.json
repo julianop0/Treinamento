@@ -1,22 +1,27 @@
 {
     "name": "juliano/composer",
-    "description": "Autoload",
+    "description": "Autoload files and dependencies",
     "minimum-stability": "stable",
     "license": "MIT",
-    "authors": [{
-        "name": "Juliano",
-        "email": "julianop.possamai@gmail.com",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Juliano",
+            "email": "julianop.possamai@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "config": {
         "vendor-dir": "vendor"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "App/"
+            "App\\": "App"
         },
         "files": [
             "config.php"
         ]
+    },
+    "require": {
+        "phpunit/phpunit": "^7"
     }
 }
