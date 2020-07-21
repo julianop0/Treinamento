@@ -2,8 +2,6 @@
 
 namespace App\Classes;
 
-require_once("vendor/autoload.php");
-
 class Router
 {
 
