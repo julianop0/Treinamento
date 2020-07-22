@@ -15,14 +15,6 @@ class Pagination
     protected $offset;
     protected $limit =  6;
 
-    #--Magic Get--
-    public function __get($property)
-    {
-        if (property_exists($this, $property)) {
-            return $this->$property;
-        }
-    }
-
     public function getOffset($p)
     {
         $this->offset = ($p == 1) ? 0 : ($p - 1) * $this->limit;
@@ -53,11 +45,6 @@ class Pagination
         $stmt->execute();
 
         return $stmt->rowCount();
-    }
-
-    public function setCurrentPage($v)
-    {
-        $this->currentPage = $v;
     }
 
     public function getTotalPages($query = null, $binds = null)

@@ -94,11 +94,10 @@ class Veiculo
         $stmt->bindValue(":preco", $this->preco);
         $stmt->bindValue(":preco_fipe", $this->preco_fipe);
 
-        if ($stmt->execute()) {
-            return true;
-        } else {
+        if (!$stmt->execute()) {
             return false;
-        };
+        }
+        return true;
     }
 
     public function update()
@@ -131,11 +130,10 @@ class Veiculo
         $stmt->bindValue(":preco_fipe", $this->preco_fipe);
         $stmt->bindValue(":id", $this->id);
 
-        if ($stmt->execute()) {
-            return true;
-        } else {
+        if (!$stmt->execute()) {
             return false;
-        };
+        }
+        return true;
     }
 
     public function search()
@@ -183,11 +181,10 @@ class Veiculo
                 'paginaAtual' => $paginaAtual,
                 'totalPaginas' => $totalPaginas
             ];
-        } else {
-            return [
-                'erro' => 'Erro ao realizar busca'
-            ];
         }
+        return [
+            'erro' => 'Erro ao realizar busca'
+        ];
     }
 
     public function delete()
@@ -195,11 +192,10 @@ class Veiculo
         $query = "DELETE FROM veiculos WHERE id IN ($this->id)";
         $stmt = $this->connection->prepare($query);
 
-        if ($stmt->execute()) {
-            return true;
-        } else {
+        if (!$stmt->execute()) {
             return false;
-        };
+        }
+        return true;
     }
 
     public function __destruct()
