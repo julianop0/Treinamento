@@ -136,7 +136,7 @@ class Veiculo
         return true;
     }
 
-    public function search()
+    public function search($busca = null)
     {
         $paginacao = new Pagination;
 
@@ -144,7 +144,7 @@ class Veiculo
         $offset = $paginacao->getOffset($this->pagina);
 
 
-        if (isset($this->searchParameter)) {
+        if (isset($busca)) {
 
             $query = "SELECT id,descricao,placa,marca
                         FROM veiculos
@@ -154,10 +154,10 @@ class Veiculo
                              marca LIKE :searchParameter3";
 
             $totalPaginas = $paginacao->getTotalPages($query, [
-                ':searchParameter0' => $this->searchParameter,
-                ':searchParameter1' => $this->searchParameter,
-                ':searchParameter2' => $this->searchParameter,
-                ':searchParameter3' => $this->searchParameter
+                ':searchParameter0' => $busca,
+                ':searchParameter1' => $busca,
+                ':searchParameter2' => $busca,
+                ':searchParameter3' => $busca
             ]);
 
             $paginaAtual = $this->pagina;
@@ -165,10 +165,10 @@ class Veiculo
             $query .= " LIMIT :offset , :limit";
 
             $this->stmt = $this->connection->prepare($query);
-            $this->stmt->bindValue(':searchParameter0', $this->searchParameter, PDO::PARAM_STR);
-            $this->stmt->bindValue(':searchParameter1', $this->searchParameter, PDO::PARAM_STR);
-            $this->stmt->bindValue(':searchParameter2', $this->searchParameter, PDO::PARAM_STR);
-            $this->stmt->bindValue(':searchParameter3', $this->searchParameter, PDO::PARAM_STR);
+            $this->stmt->bindValue(':searchParameter0', $busca, PDO::PARAM_STR);
+            $this->stmt->bindValue(':searchParameter1', $busca, PDO::PARAM_STR);
+            $this->stmt->bindValue(':searchParameter2', $busca, PDO::PARAM_STR);
+            $this->stmt->bindValue(':searchParameter3', $busca, PDO::PARAM_STR);
             $this->stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
             $this->stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
 
@@ -187,9 +187,9 @@ class Veiculo
         ];
     }
 
-    public function delete()
+    public function delete($parameters)
     {
-        $query = "DELETE FROM veiculos WHERE id IN ($this->id)";
+        $query = "DELETE FROM veiculos WHERE id IN ($parameters)";
         $stmt = $this->connection->prepare($query);
 
         if (!$stmt->execute()) {

@@ -8,6 +8,7 @@ class ControllerList
 {
 
     private $model;
+    private $busca;
 
     public function defaultMethod()
     {
@@ -23,10 +24,10 @@ class ControllerList
             $this->model = new Veiculo;
 
             #--Set--
-            $this->model->searchParameter = '%' . $parameter . '%';
+            $this->busca = '%' . $parameter . '%';
             $this->model->pagina = $pagina;
 
-            $res = $this->model->search();
+            $res = $this->model->search($this->busca);
             http_response_code(200);
             echo json_encode($res);
         } else {

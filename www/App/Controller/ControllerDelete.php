@@ -7,19 +7,17 @@ use App\Model\Veiculo;
 class ControllerDelete
 {
     private $model;
-    private $parameter;
 
-    public function defaultMethod($parameter = null)
+    public function defaultMethod($parameters = null)
     {
-        if (isset($parameter)) {
+        if (isset($parameters)) {
 
             $this->model = new Veiculo;
 
-            $this->model->id = $parameter;
 
             #--Call a function to delete data from DataBase--
             SESSION_START();
-            if ($this->model->delete()) {
+            if ($this->model->delete($parameters)) {
                 $_SESSION['success'] = [
                     'success' => 1,
                     'msg' => 'Veículos removidos'
